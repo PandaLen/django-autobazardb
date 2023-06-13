@@ -38,6 +38,7 @@ class Auto(models.Model):
     palivo = models.CharField(max_length=100, verbose_name='Palivo', help_text='Vyberte co používá auto za pohonou hmotu', choices=PALIVA)
     znacka = models.ForeignKey('Vyrobce', on_delete=models.CASCADE, verbose_name='Značka', help_text='Vyberte značku auta', default=0)
     autobazar = models.ManyToManyField('Autobazar', verbose_name='Autobazar', help_text='Vyberte autobazar, ve kterém se auto nachází')
+    fotka = models.ImageField(upload_to='auta', null=True, blank=True, verbose_name='Fotka auta', help_text='Nahrejte fotku auta')
 
     class Meta:
         verbose_name = 'Auto'

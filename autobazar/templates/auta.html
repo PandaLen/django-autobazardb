@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Auta{% endblock %}
+
+{% block content %}
+    <h1>Auta</h1>
+    <div class="row bg-dark p-3">
+    {% for auto in auta %}
+        <div class="col-lg-2 col-md-4">
+            <img src="{{ auto.fotka.url }}"
+                 alt="Fotka: {{ auto.nazev }}"
+                 class="img-fluid rounded">
+            <p><a href="#">{{ auto.nazev }}</a></p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

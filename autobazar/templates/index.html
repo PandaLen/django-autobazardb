@@ -1,0 +1,32 @@
+{ {% extends 'base.html' %}}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 mt-3 mb-3">
+            <h2 class="bg-danger text-light text-center text-uppercase p-3">{{ nadpis }}</h2>
+            {% for auto in auta %}
+            <div class="row mb-3">
+                <div class="col-lg-3">
+                    <img src="{{ auto.fotka.url }}" alt="{{ auto.nazev }}" class="img-fluid">
+                </div>
+                <div class="col-lg-9">
+                    <h3><a href="#">{{ auto.nazev }}</a></h3>
+                    <p class="alert alert-secondary">Vyrobeno: {{ auto.znacka }}, {{ auto.rok_vyroby }}<br>Palivo: {{ auto.palivo }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-4 bg-light mt-3 mb-3">
+            <h2 class="bg-secondary text-light text-center p-3">Přehled autobazarů</h2>
+            <ul class="list-group">
+            {% for autobazar in autobazary %}
+                {% if autobazar.nazev == nadpis %}
+                <li class="list-group-item active">{{ autobazar.nazev }}</li>
+                {% else %}
+                <li class="list-group-item"><a href="#">{{ autobazar.nazev }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
