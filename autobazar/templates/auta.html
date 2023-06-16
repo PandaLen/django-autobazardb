@@ -10,7 +10,7 @@
             <img src="{{ auto.fotka.url }}"
                  alt="Fotka: {{ auto.nazev }}"
                  class="img-fluid rounded">
-            <p><a href="#">{{ auto.nazev }}</a></p>
+            <p><a href="{% url 'auto_detail' auto.id %}">{{ auto.nazev }}</a></p>
         </div>
     {% endfor %}
     </div>

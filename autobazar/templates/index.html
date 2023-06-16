@@ -1,17 +1,17 @@
-{ {% extends 'base.html' %}}
+{% extends 'base.html' %}
 
 {% block content %}
     <div class="row">
         <div class="col-lg-8 mt-3 mb-3">
-            <h2 class="bg-danger text-light text-center text-uppercase p-3">{{ nadpis }}</h2>
+            <h2 class="bg-warning text-light text-center text-uppercase p-3">{{ nadpis }}</h2>
             {% for auto in auta %}
             <div class="row mb-3">
                 <div class="col-lg-3">
                     <img src="{{ auto.fotka.url }}" alt="{{ auto.nazev }}" class="img-fluid">
                 </div>
                 <div class="col-lg-9">
-                    <h3><a href="#">{{ auto.nazev }}</a></h3>
-                    <p class="alert alert-secondary">Vyrobeno: {{ auto.znacka }}, {{ auto.rok_vyroby }}<br>Palivo: {{ auto.palivo }}</p>
+                    <h3><a href="{% url 'auto_detail' auto.id %}">{{ auto.nazev }}</a></h3>
+                    <p class="alert alert-secondary">Vyrobeno: {{ auto.znacka }}, {{ auto.rok_vyroby }}<br>Cena: {{ auto.cena }} Kč</p>
                 </div>
             </div>
             {% endfor %}
@@ -23,7 +23,7 @@
                 {% if autobazar.nazev == nadpis %}
                 <li class="list-group-item active">{{ autobazar.nazev }}</li>
                 {% else %}
-                <li class="list-group-item"><a href="#">{{ autobazar.nazev }}</a></li>
+                <li class="list-group-item"><a href="{% url 'autobazar_detail' autobazar.id %}">{{ autobazar.nazev }}</a></li>
                 {% endif %}
             {% endfor %}
             </ul>

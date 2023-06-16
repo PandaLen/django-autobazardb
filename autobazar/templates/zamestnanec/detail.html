@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ zamestnanec }}{% endblock %}
+
+{% block content %}
+    <h2>{{ zamestnanec.jmeno }} {{ zamestnanec.prijmeni }}</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ zamestnanec.fotka.url }}" alt="{{ zamestnanec.jmeno|first }}. {{ zamestnanec.prijmeni }}" class="img-fluid">
+            <p class="mt-3"><b>Adresa:</b> {{ zamestnanec.obec }}, {{ zamestnanec.ulice }} {{ zamestnanec.cislo_popisne }}, {{ zamestnanec.psc }}</p>
+            <p><b>Telefon:</b> {{ zamestnanec.telefon }}</p>
+            <p><b>Pracuje v:</b> {{ zamestnanec.autobazar }}</p>
+        </div>
+    </div>
+{% endblock %}

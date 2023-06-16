@@ -53,6 +53,7 @@ class Autobazar(models.Model):
     obec = models.CharField(max_length=100, null=False, blank=False, verbose_name='Obec', help_text='Zadejte obec, ve které se autobazar nachází')
     ulice = models.CharField(max_length=50, null=False, blank=False, verbose_name='Ulice', help_text='Zadejte ulici, ve které se autobazar nachází')
     psc = models.PositiveIntegerField(null=False, blank=False, verbose_name='PSČ', help_text='Zadejte PSČ')
+    fotka = models.ImageField(upload_to='autobazary', null=True, blank=True, verbose_name='Logo autobazaru', help_text='Nahrejte logo autobazaru', default='uploads/default.jpg')
     
     class Meta:
         verbose_name = 'Autobazar'
@@ -75,8 +76,8 @@ class Zamestnanec(models.Model):
     autobazar = models.ForeignKey('Autobazar', on_delete=models.CASCADE, verbose_name='Autobazar', help_text='Vyberte autobazar, ve kterém zaměstnanec pracuje', default=0)
     
     class Meta:
-        verbose_name = 'Zaměstnanec'
-        verbose_name_plural = 'Zaměstnanci'
+        verbose_name = 'Zamestnanec'
+        verbose_name_plural = 'Zamestnanci'
         ordering = ['prijmeni', 'jmeno']
 
     def __str__(self):

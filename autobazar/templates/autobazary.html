@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Autobazary{% endblock %}
+
+{% block content %}
+    <h1>Autobazary</h1>
+    <div class="row bg-dark p-3">
+    {% for autobazar in autobazary %}
+        <div class="col-lg-2 col-md-4">
+            <img src="{{ autobazar.fotka.url }}"
+                 alt="Fotka: {{ autobazar.nazev }}"
+                 class="img-fluid rounded">
+            <p><a href="{% url 'autobazar_detail' autobazar.id %}">{{ autobazar.nazev }}</a></p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

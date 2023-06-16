@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ autobazar }}{% endblock %}
+
+{% block content %}
+    <h2>{{ autobazar.nazev }}</h2>
+    <div class="row">
+        <div>
+            <img src="{{ autobazar.fotka.url }}" alt="{{ autobazar.nazev }}"
+                 class="img-fluid">
+            <p class="mt-3"><b>Adresa:</b> {{ autobazar.obec }}, {{ autobazar.ulice }}, {{ autobazar.psc }}</p>
+        </div>
+    </div>
+{% endblock %}
